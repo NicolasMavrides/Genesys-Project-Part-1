@@ -1,0 +1,58 @@
+@import 'variables';
+
+/* Customized radio buttons for quiz responses */
+.radio-custom {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-custom input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio-icon {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 30px;
+  height: 26px;
+  background: url('/assets/ic_radio_button.png') no-repeat top left;
+  background-size: contain;
+
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.radio-custom:hover input ~ .radio-icon {
+  background-color: #ccc;
+}
+
+.radio-custom input:checked ~ .radio-icon {
+  width: 35px;
+  height: 26px;
+  
+  background: url('/assets/ic_radio_button_checked.png') no-repeat top left;
+  background-size: contain;
+}
+
+.radio-icon:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio-icon input:checked ~ .radio-icon:after {
+  display: block;
+}

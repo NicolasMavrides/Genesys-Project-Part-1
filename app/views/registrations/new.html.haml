@@ -1,0 +1,143 @@
+- content_for :title, "Results and Subscribe"
+
+-# Results & Pricing Section
+#results.quiz.mx-auto
+  .quiz-header.h2.text-light.mb-0.px-5.pt-5
+    %span.d-block.question-header-text Quiz results
+    = image_tag 'ic_result.png', alt: 'Discover icons', height: 70, class: 'd-block ml-auto discover-ic mt-3 mt-lg-0'
+
+  .result-content
+    .row.align-items-center.text-dark.p-5.mb-0.mr-md-0
+      .col
+        #results1.h4.result-text.mb-4.d-none
+          %p.mb-4
+            You have successfully completed the quiz. You appear to have a
+            poor understanding of cyber security and its impact on your
+            online personal information.
+          %p
+            Discover below our innovative products to dramatically improve
+            your online security.
+
+        #results2.h4.result-text.mb-4.d-none
+          %p.mb-4
+            You have successfully completed the quiz. You appear to have
+            some understanding of cyber security and its impact on your
+            online personal information.
+          %p
+            Discover below our innovative products to further help you
+            improve your online security.
+
+        #results3.h4.result-text.mb-4.d-none
+          %p.mb-4
+            You have successfully completed the quiz. You appear to have a
+            in-depth understanding of cyber security and its impact on your
+            online personal information.
+          %p
+            Discover below our innovative products to make sure you have
+            not missed out on anything important regarding cyber security.
+
+      .col-12.col-md-auto.text-center
+        #gauge
+          %canvas#canvas-gauge{width: 380, height: 200 }
+          #gauge-text.div
+
+    #payment_options_text.row.plans.mx-0.px-5.text-center.pt-4.justify-content-center
+      %h5.plans.font-weight-bold
+        %i Please select a payment option
+    #payment_options.row.plans.mx-0.px-5.align-items-center.pt-3
+      .col-12.col-md-6.col-lg-4.px-3.pb-5
+        %a{ :id => "bronze", :onClick => "showSubscribe(this.id)"}
+          .plan.shadows.mx-auto
+            .plan-header.bronze.p-2.text-light.text-center.shadows BRONZE PLAN
+            .plan-content.bronze.d-flex.flex-column.justify-content-between.text-dark.px-4.pt-4
+              .features
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Take our full quiz and view general feedback.
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Access to our online security news feed and blog.
+              %b.mb-3.text-center FREE
+
+      .col-12.col-md-6.col-lg-4.px-3.pb-5
+        %a{ :id => "silver", :onClick => "showSubscribe(this.id)"}
+          .plan.shadows.mx-auto
+            .plan-header.silver.p-2.text-dark.text-center.shadows SILVER PLAN
+            .plan-content.silver.d-flex.flex-column.justify-content-between.text-dark.px-4.pt-4
+              .features
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Take our full quiz and view answers and
+                  specific feedback with tailored tips.
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Access to our online security news feed and blog.
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Use our disposal tool to find out how to safely pass
+                  on or recycle your old devices.
+              %b.mb-3.text-center.mt-3 £5.99/year
+      .col-12.col-lg-4.px-3.pb-5
+        %a{ :id => "gold", :onClick => "showSubscribe(this.id)"}
+          .plan.shadows.mx-auto
+            .plan-header.gold.p-2.text-dark.text-center.shadows GOLD PLAN
+            .plan-content.gold.d-flex.flex-column.justify-content-between.text-dark.px-4.pt-4
+              .features
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Take our full quiz and view answers and
+                  specific feedback with tailored tips.
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Access to our online security news feed and blog.
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Use our disposal tool to find out how to safely pass
+                  on or recycle your old devices.
+                .feature
+                  = fa_icon 'check', class: 'text-primary align-middle'
+                  %span.align-middle Find out what information of you is available
+                  online by using our online exposure search tool.
+              %b.mb-3.text-center.mt-3 £7.99/year
+
+    #subscribe.row.plans.mx-0.px-4.py-5.align-items-center.d-none
+      %a{:onClick => "hideSubscribe()"}
+        %i#back.fa.fa-arrow-left
+      .col-12.col-md-5.order-2.order-md-1.px-3.pb-5
+        .plan.selected.shadows.mx-auto
+          #payment_option_name.plan-header.p-2.text-light.text-center.shadows
+          #payment_option_box.plan-content.d-flex.flex-column.justify-content-between.px-4.pt-4
+            .features
+              .feature
+                = fa_icon 'check', class: 'text-primary align-middle'
+                %span#feature_description.align-middle
+              .feature
+                = fa_icon 'check', class: 'text-primary align-middle'
+                %span.align-middle Access to our online security news feed and blog.
+              #extra1.feature.d-none
+                = fa_icon 'check', class: 'text-primary align-middle'
+                %span.align-middle Use our disposal tool to find out how to safely pass
+                on or recycle your old devices.
+              #extra2.feature.d-none
+                = fa_icon 'check', class: 'text-primary align-middle'
+                %span.align-middle Find out what information of you is available
+                online by using our online exposure search tool.
+            %b#price_text.mb-3.text-center.mt-3
+      .col.h5.order-1.order-md-2.mb-4
+        %p
+          Thank you for showing your interest of our product. At the moment,
+          the project is in the late development stage, aiming to finish as
+          soon as possible.
+        %p
+          In the meantime, subscribe to our newsletter to get notified with
+          updates of the process, and be among the first to get Early Bird access.
+        = simple_form_for @registration do |f|
+          .d-flex.my-4
+            = f.input :email, label: false do
+              .input-group
+                .input-group-prepend
+                  .input-group-text= fa_icon 'envelope'
+                = f.input_field :email, class: 'form-control subscribe-input', placeholder: "Email"
+            =f.submit 'Subscribe', class: 'btn btn-primary mb-3 ml-1'
+
+= javascript_include_tag "result"

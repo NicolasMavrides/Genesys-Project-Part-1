@@ -1,0 +1,10 @@
+!!!
+%html
+  = render 'layouts/head'
+  = favicon_link_tag 'favicon_32x32.png'
+
+  %body.bg-dark{:style => 'overflow-x: hidden; height: 100%'}
+    = render 'layouts/navbar'
+    = yield
+    = render 'layouts/footer'
+    = javascript_include_tag 'main', 'data-turbolinks-track' => true

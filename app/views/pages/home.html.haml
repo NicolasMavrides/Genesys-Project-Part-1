@@ -1,0 +1,47 @@
+- content_for :title, "Home"
+
+-# Intro Section
+.intro.mx-auto
+  .intro-header.pb-5
+    .h2.intro-header-text.px-5.pt-5
+      %span.text-light Online information security made simple with
+      %span.b.text-primary Securium
+    .row.mx-0.align-items-start
+      .col-12.col-lg-6.px-0
+      .col-12.col-lg-6.px-0
+        .intro-quiz.mx-auto.mr-lg-4.my-5.my-lg-0.pt-5.pb-4
+          .media
+            = image_tag 'ic_note_highlight.png', height: 90, alt: 'Note highlight icon', class: 'mr-5 mr-lg-4'
+            .media-body
+              .h4.intro-quiz-text
+                %span.b.text-primary Take
+                %span.text-light 
+                  our quick quiz to determine your knowledge on online security and get feedback tailored to decrease your risk factors
+          .row.text-center
+            = image_tag 'ic_chart_donut.png', height: 85, alt: 'Chart donut icon', class: 'col-auto ml-3 intro-quiz-icon-l'
+            .col
+              %a.btn.btn-primary.mt-4{ href:'/quiz'} Take the quiz
+            = image_tag 'ic_shield_highlight.png', height: 85, alt: 'Shield highlight icon', class: 'col-auto mr-3 intro-quiz-icon-r'
+  .row.bg-secondary.mx-0
+    .col.col-lg-6.text-dark.p-4
+      = image_tag 'ic_intro.png', alt: 'Intro icons', height: 85, class: 'd-block mx-auto intro-ic'
+      .h3.mx-3 No matter how much you know about online security - we provide the right services for your experience and help you to be safe online!
+  .row.bg-secondary.mx-0.px-5.pt-5
+    .col-12.col-md-6.mb-5
+      .media
+        = image_tag 'ic_account_search.png', height: 50, alt: 'Account search icon', class: 'mr-3 mt-1'
+        .media-body
+          %h5
+            %b
+              %a.text-primary{ href:'/about'} Ascertain
+            %span.text-dark 
+              the online exposure of your personal information to gain an insight into what the internet knows about you
+    .col-12.col-md-6.mb-5
+      .media
+        = image_tag 'ic_location_arrow.png', height: 50, alt: 'Location arrow icon', class: 'mr-3 mt-1'
+        .media-body
+          %h5
+            %b
+              %a.text-primary{ href:'/about'} Explore
+            %span.text-dark
+              a wide range of recycling services and disposal sites near you to safely pass on your old devices

@@ -1,0 +1,37 @@
+@import 'variables';
+
+.control-label {
+  &.radio_buttons, &.check_boxes {
+    margin-bottom: 0;
+  }
+  &.inline_radio_buttons, &.inline_check_boxes {
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+
+form[action="/question"] {
+  max-width: 600px;
+}
+
+#card-login {
+  background: rgb(236,239,241);
+  background: linear-gradient(0deg, rgba(236,239,241,1) 0%, rgba(236,239,241,0.3) 100%);
+
+  border: 0;
+  border-bottom: 2px solid map-get($map: $custom-theme, $key: 'primary');
+
+  .card-header {
+    background-color: #263238;
+  }
+
+  button {
+  margin-top: 16px
+  }
+
+  input {
+    border-width: 0.5px;
+    color: white;
+    background-color: #455a64;
+  }
+}

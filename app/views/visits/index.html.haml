@@ -1,0 +1,107 @@
+- content_for :title, "Metrics"
+
+#content.intro.mx-auto
+  .section
+    .container
+      .row.justify-content-center.mt-3
+        .col.mb-3{style: "min-width: 250px"}
+          .card.card-body
+            .row.align-items-center
+              .col.h1.text-right= @visits.count
+              .col-auto.h5
+                Total
+                %br
+                Visits
+        .col.mb-3{style: "min-width: 300px"}
+          .card.card-body
+            .row.align-items-center
+              .col.h1.text-right= @visits.count {|v| v.registration.present?}
+              .col-auto.h5
+                Newsletter
+                %br
+                Subscribers
+        .col.mb-3{style: "min-width: 250px"}
+          .card.card-body
+            .row.align-items-center
+              .col.h1.text-right= @visits.count {|v| v.score.present?}
+              .col-auto.h5
+                Finished
+                %br
+                Quizes
+        .col.mb-3{style: "min-width: 300px"}
+          .card.card-body
+            .row.align-items-center
+              - scores = @visits.filter {|v| v.score.present?}
+              - if !(scores.size == 0)
+                .col.h1.text-right #{scores.map{|v| v.score}.reduce(:+).to_i / scores.size}%
+              - else
+                .col.h1.text-right 0%
+              .col-auto.h5
+                Average
+                %br
+                Score
+      .row.justify-content-center
+        - ['bronze', 'silver', 'gold'].each do |plan|
+          .col-auto.mb-3{style: "min-width: 250px"}
+            .card.card-body
+              .row.align-items-center
+                .col.h1.text-right #{@visits.count {|v| v.plan == plan}}
+                .col-auto.h5
+                  = plan.capitalize
+                  %br
+                  Plans
+
+      .page-header
+        %h2.text-light Visitor data
+      - @visits.each do |visit|
+
+        .card.mb-3
+          .card-header
+            .row.align-items-center
+              .col-12.col-md.h4.mb-0 Visit ##{visit.id}
+              .col-md-auto.small
+                #{l (visit.link_clicks.min).created_at, format: :compact} -
+                #{l (visit.link_clicks.max).created_at, format: :compact}
+          .card-body
+            .row.align-items-center
+              .col
+                .h5 Visited pages
+                .row
+                  - [['Home', '/'], ['About', '/about'], ['Quiz', '/quiz']].each do |v|
+                    - visited = visit.link_clicks.any? { |link| link.url == v[1] }
+                    .col-auto{style: 'min-width: 80px'}
+                      = icon "fa text-#{visited ? 'success' : 'danger'}", "#{visited ? 'check' : 'times'}", v[0]
+                  .col-auto{style: 'min-width: 80px'}
+                    = icon "fa text-#{visit.score.present? ? 'success' : 'danger'}", "#{visit.score.present? ? 'check' : 'times'}", 'Results'
+
+              .col-md-6
+                .row.mt-4.mt-md-0
+                  .col
+                    .h6
+                      %b Score:
+                      = visit.score.present? ? "#{visit.score}%" : 'None'
+                  .col
+                    .h6
+                      %b Plan:
+                      = visit.plan.present? ? visit.plan.capitalize : 'None'
+                .h6.mb-0
+                  %b Registration:
+                  #{visit.registration.present? ? visit.registration.email : 'None'}
+
+          .collapse.px-3{id: "collapseJourney#{visit.id}"}
+            %table.table.table-hover.table-light
+              %thead
+                %tr
+                  %th Time
+                  %th Link ID
+                  %th Link name
+                  %th Url
+
+              %tbody
+                - visit.link_clicks.each do |link_click|
+                  %tr
+                    %td= l link_click.created_at, format: :compact
+                    %td= link_click.link_css_id
+                    %td= link_click.link_name
+                    %td= link_click.url
+          %button.btn.btn-sm.btn-secondary{'type' => 'button', 'data-toggle' => 'collapse', 'data-target' => "#collapseJourney#{visit.id}", 'aria-expanded' => "false", 'aria-controls' => "collapseJourney1"} Show website journey

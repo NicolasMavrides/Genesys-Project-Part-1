@@ -1,0 +1,124 @@
+- content_for :title, "Quiz"
+
+-# Quiz Section
+#quiz.quiz.mx-auto
+  #q1.div
+    .quiz-header.h2.text-light.mb-0.px-5.pt-5
+      %span.d-block.question-header-text
+        Do you use online services on public computers or access public WiFi networks?
+        .row.quiz-progress.px-5.pt-4
+        .h5.text-light
+          %i Select one answer
+      = image_tag 'ic_question.png', alt: 'Discover icons', height: 70, class: 'd-block ml-auto discover-ic mt-3 mt-lg-0'
+
+    .quiz-content
+      .h5.text-dark.p-5.mb-0.mx-5
+        #warn1.h4.text-danger.font-weight-bold.d-none
+          Please select an option
+        = simple_form_for :form_q1, html: { id: :form_q1 } do |f|
+          %label.radio-custom
+            = f.radio_button :q1, '-25'
+            Yes, all the time
+            %span.radio-icon
+          %label.radio-custom
+            = f.radio_button :q1, '-10'
+            Yes, sometimes
+            %span.radio-icon
+          %label.radio-custom
+            = f.radio_button :q1, '0'
+            No
+            %span.radio-icon
+      .row.quiz-progress.px-5.pt-4
+        .col.h5.mb-4
+          %wedge.float-left.wedge-0
+          %span.d-inline-block.ml-3.mt-1 Progress
+        .col-sm-auto.text-center.mb-4
+          %button.btn.btn-primary{:id => "1", :type => "button", :onclick => "next(this.id)"} Next
+
+  #q2.div.d-none
+    .quiz-header.h2.text-light.mb-0.px-5.pt-5
+      %span.d-block.question-header-text
+        How do you dispose of your old devices (phones, laptops, etc)?
+        .row.quiz-progress.px-5.pt-4
+        .h5.text-light
+          %i Select all that apply
+      = image_tag 'ic_question.png', alt: 'Discover icons', height: 70, class: 'd-block ml-auto discover-ic mt-3 mt-lg-0'
+
+    .quiz-content
+      .h5.text-dark.p-5.mb-0.mx-5
+        #warn2.h4.text-danger.font-weight-bold.d-none
+          Please select an option
+        = simple_form_for :form_q2, html: { id: :form_q2 } do |f|
+          %label.checkbox-custom
+            = f.check_box :q2, {}, "0"
+            I give them to friends or family
+            %span.checkmark
+          %label.checkbox-custom
+            = f.check_box :q2, {}, "5"
+            I make sure to factory reset them
+            %span.checkmark
+          %label.checkbox-custom
+            = f.check_box :q2, {}, "0"
+            I manually delete my files
+            %span.checkmark
+          %label.checkbox-custom
+            = f.check_box :q2, {}, "0"
+            I sell it online
+            %span.checkmark
+          %label.checkbox-custom
+            = f.check_box :q2, {}, "15"
+            I return it to the company I bought it from
+            %span.checkmark
+          %label.checkbox-custom
+            = f.check_box :q2, {}, "10"
+            I bring it to a recycling site
+            %span.checkmark
+      .row.quiz-progress.px-5.pt-4
+        .col.h5.mb-4
+          %wedge.float-left.wedge-33
+          %span.d-inline-block.ml-3.mt-1 Progress
+        .col-sm-auto.text-center.mb-4
+          %button.btn.btn-secondary.px-4{id: "previous_2", type: 'button', onClick: "previous(this.id)"} Previous
+          %button.btn.btn-primary{:id => "2", :type => "button", :onclick => "next(this.id)"} Next
+
+  #q3.div.d-none
+    .quiz-header.h2.text-light.mb-0.px-5.pt-5
+      %span.d-block.question-header-text
+        When do you change your main email password?
+        .row.quiz-progress.px-5.pt-4
+        .h5.text-light
+          %i Select one answer
+      = image_tag 'ic_question.png', alt: 'Discover icons', height: 70, class: 'd-block ml-auto discover-ic mt-3 mt-lg-0'
+
+    .quiz-content
+      .h5.text-dark.p-5.mb-0.mx-5
+        #warn3.h4.text-danger.font-weight-bold.d-none
+          Please select an option
+        = simple_form_for :form_q3, html: { id: :form_q3 } do |f|
+          %label.radio-custom
+            = f.radio_button :q3, '-5'
+            Never
+            %span.radio-icon
+          %label.radio-custom
+            = f.radio_button :q3, '0'
+            Every Month
+            %span.radio-icon
+          %label.radio-custom
+            = f.radio_button :q3, '5'
+            Every Year
+            %span.radio-icon
+          %label.radio-custom
+            = f.radio_button :q3, '10'
+            Whenever I am instructed to do so by my workplace
+            %span.radio-icon
+          %label.radio-custom
+            = f.radio_button :q3, '15'
+            Only when someone has gained access to my account
+            %span.radio-icon
+      .row.quiz-progress.px-5.pt-4
+        .col.h5.mb-4
+          %wedge.float-left.wedge-66
+          %span.d-inline-block.ml-3.mt-1 Progress
+        .col-sm-auto.text-center.mb-4
+          %button.btn.btn-secondary.px-4{id: "previous_3", type: 'button', onClick: "previous(this.id)"} Previous
+          %button.btn.btn-primary{:id => "3", :type => "button", :onclick => "next(this.id)"} Submit

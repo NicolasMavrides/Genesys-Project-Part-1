@@ -1,0 +1,58 @@
+@import 'variables';
+
+/* Customized radio buttons for quiz responses */
+.checkbox-custom {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-custom input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 30px;
+  height: 26px;
+  background: url('/assets/ic_check_square.png') no-repeat top left;
+  background-size: contain;
+
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.checkbox-custom:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-custom input:checked ~ .checkmark {
+  width: 35px;
+  height: 26px;
+  
+  background: url('/assets/ic_check_square_checked.png') no-repeat top left;
+  background-size: contain;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-custom input:checked ~ .checkmark:after {
+  display: block;
+}

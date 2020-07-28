@@ -1,0 +1,14 @@
+- content_for :title, "Quiz Start"
+
+-# Quiz Section
+.quiz.mx-auto
+  .quiz-header.h2.text-light.mb-0.px-5.pt-5
+    = image_tag 'ic_quiz.png', alt: 'Discover icons', height: 75, class: 'd-block ml-auto discover-ic mt-3 mt-lg-0'
+
+  .quiz-content.p-5.text-dark
+    %h1.text-primary.font-weight-bold.mb-5 Welcome to our quiz!
+    %h3.quiz-text.mb-5 
+      Are you unsure if you need help protecting your online data? Take our 
+      quiz to find out how much you know about online security and get
+      recommendations on how to improve. Suitable for all levels!
+    = link_to 'Begin', {controller: "pages", action: "question"},  class: "btn btn-lg btn-primary"

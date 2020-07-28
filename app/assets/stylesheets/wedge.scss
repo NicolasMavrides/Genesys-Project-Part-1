@@ -1,0 +1,76 @@
+@import 'variables';
+
+// Custom circular progress bar for Quiz
+wedge {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: map-get($map: $custom-theme, $key: 'dark-2');
+}
+
+wedge::before {
+  content:"";
+
+  display: inline-block;
+  position: relative;
+
+  width: 28px;
+  height: 28px;
+
+  left: 4px;
+  top: 4px;
+
+  border-radius: 50%;
+  background-color: map-get($map: $custom-theme, $key: 'secondary');
+}
+
+wedge:after {
+  content: '0%';
+
+  display: inline-block;
+  position: relative;
+
+  top: -30px;
+  left: 50%;
+
+  transform: translate(-50%, 0);
+
+  color: map-get($map: $custom-theme, $key: 'primary');
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.wedge-0 {
+  background-image:
+      linear-gradient(90deg, transparent 50%, map-get($map: $custom-theme, $key: 'secondary') 50%),
+      linear-gradient(90deg, map-get($map: $custom-theme, $key: 'secondary') 50%, transparent 50%);
+}
+
+.wedge-33 {
+  background-image:
+      linear-gradient(178deg, transparent 50%, map-get($map: $custom-theme, $key: 'secondary') 50%),
+      linear-gradient(90deg, map-get($map: $custom-theme, $key: 'secondary') 50%, transparent 50%);
+}
+
+.wedge-33:after {
+  content: '33%';
+}
+
+.wedge-66 {
+  background-image:
+      linear-gradient(118deg, transparent 50%, map-get($map: $custom-theme, $key: 'dark-2') 50%),
+      linear-gradient(90deg, map-get($map: $custom-theme, $key: 'secondary') 50%, transparent 50%);
+}
+
+.wedge-66:after {
+  content: '66%';
+}
+
+.wedge-100 {
+  background-image: none;
+}
+
+.wedge-100:after {
+  content: '100%';
+}

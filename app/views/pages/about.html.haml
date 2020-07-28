@@ -1,0 +1,38 @@
+- content_for :title, "About"
+
+-# Intro Section
+.discover.d-flex.flex-column.justify-content-between.mx-auto
+  -# Discover Section
+  .discover-header.h2.text-light.mb-0.px-5.pt-5
+    %span How we can help you be safe online
+    = image_tag 'ic_intro.png', alt: 'Discover icons', height: 85, class: 'd-block ml-auto discover-ic mt-3 mt-lg-0'
+  .row.mx-0.discover-content.px-3.pt-4
+    .col-12.col-md-6.col-lg-4.text-center.px-3.pb-4
+      .discover-section.pt-5.pb-4.shadows
+        = image_tag 'ic_radio_button_checked.png', alt: 'Radio image', class: 'discover-radio-img'
+        = image_tag 'ic_vcard.png', height: 80, alt: 'Vcard icon'
+        %h2.mb-3 Explore
+        %p.large.d-inline-block.discover-text
+          Explore what information of you is available online. Simply tell us your
+          social media username and we will return a detailed profile
+          of you using data about you that is publicly accessible online.
+    .col-12.col-md-6.col-lg-4.text-center.px-3.pb-4
+      .discover-section.pt-5.pb-4.shadows
+        = image_tag 'ic_radio_button_checked.png', alt: 'Radio image', class: 'discover-radio-img'
+        = image_tag 'ic_note_list.png', height: 80, alt: 'Note list icon'
+        %h2.mb-3 Take
+        %p.large.d-inline-block.discover-text
+          Take our quiz! Without subscribing, you will be able to take a sample 
+          version of our quiz aimed to assess your level of understanding of 
+          online security risks. Want to know more and receive detailed feedback
+          and tips? Make an account and take our expanded quiz!
+    .col-12.col-lg-4.text-center.px-3.pb-4
+      .discover-section.pt-5.pb-4.shadows
+        = image_tag 'ic_radio_button_checked.png', alt: 'Radio image', class: 'discover-radio-img'
+        = image_tag 'ic_map_signs.png', height: 80, alt: 'Map sign icon'
+        %h2.mb-3 Discover
+        %p.large.d-inline-block.discover-text 
+          Discover disposal and recycling services to dispose of your old 
+          devices safely. We have developed a map where you can view available 
+          sites near you easily. Furthermore, we have put together a checklist for when 
+          you sell or pass on your devices.

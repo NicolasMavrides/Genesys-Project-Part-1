@@ -1,0 +1,22 @@
+- content_for :title, 'Log In'
+
+.row.section.header-bg.justify-content-center.py-5.mx-auto
+  .col-sm-6.col-lg-4
+    #card-login.card.text-light
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .card-header.shadows
+          Log In
+        .card-body.px-5.text-center
+          .my-4
+            = f.input :username, autofocus: true, required: true, label: false do
+              .input-group
+                .input-group-prepend
+                  .input-group-text= fa_icon 'user'
+                = f.input_field :username, class: 'form-control', autofocus: true, required: true, placeholder: "Username"
+            = f.input :password, required: true, label: false do
+              .input-group
+                .input-group-prepend
+                  .input-group-text= fa_icon 'lock'
+                = f.input_field :password, class: 'form-control', required: true, placeholder: "Password"
+          = submit_button 'Log in', id: 'login'
+          .mt-3= render "devise/shared/links"
